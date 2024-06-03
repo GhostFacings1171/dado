@@ -3,57 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rolagem de dados</title>
+    <title>Rolador de d6, d10, d20 e d100</title>
     <style>
-body {
-    font-family: sans-serif;
+        body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
     text-align: center;
 }
 
-#rolarDados {
-    margin: 20px 0;
-    padding: 10px 20px;
+h1 {
+    font-size: 2.5em;
+}
+
+#botoes button {
     background-color: #4CAF50;
     color: white;
     border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
     cursor: pointer;
+    margin: 10px;
+    transition: background-color 0.3s ease;
+}
+
+#botoes button:hover {
+    background-color: #3e8e41;
 }
 
 .resultado {
-    font-size: 24px;
-    margin-top: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
+
+.resultado img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
 
     </style>
 </head>
 <body>
-    <h1>Dice pool de d6, d10, d20 e d100</h1>
+    <h1>Rolador de Dados</h1>
 
-    <button id="rolarDados">Rolar Dados</button>
+    <div id="botoes">
+        <button id="rolarD6">d6</button>
+        <button id="rolarD10">d10</button>
+        <button id="rolarD20">d20</button>
+        <button id="rolarD100">d100</button>
+    </div>
 
-    <div id="resultadoD6">Resultado D6: 0</div>
-    <div id="resultadoD10">Resultado D10: 0</div>
-    <div id="resultadoD20">Resultado D20: 0</div>
-    <div id="resultadoD100">Resultado D100: 0</div>
+    <div id="resultados">
+        <div id="resultadoD6">Resultado d6: 0</div>
+        <div id="resultadoD10">Resultado d10: 0</div>
+        <div id="resultadoD20">Resultado d20: 0</div>
+        <div id="resultadoD100">Resultado d100: 0</div>
+    </div>
 
     <script>
-const botaoRolar = document.getElementById('rolarDados');
+        const botaoD6 = document.getElementById('rolarD6');
+const botaoD10 = document.getElementById('rolarD10');
+const botaoD20 = document.getElementById('rolarD20');
+const botaoD100 = document.getElementById('rolarD100');
+
 const resultadoD6Div = document.getElementById('resultadoD6');
 const resultadoD10Div = document.getElementById('resultadoD10');
 const resultadoD20Div = document.getElementById('resultadoD20');
 const resultadoD100Div = document.getElementById('resultadoD100');
 
-botaoRolar.addEventListener('click', () => {
-    const resultadoD6 = Math.floor(Math.random() * 6) + 1;
-    const resultadoD10 = Math.floor(Math.random() * 10) + 1;
-    const resultadoD20 = Math.floor(Math.random() * 20) + 1;
-    const resultadoD100 = Math.floor(Math.random() * 100) + 1;
-
-    resultadoD6Div.textContent = `Resultado d6: ${resultadoD6}`;
-    resultadoD10Div.textContent = `Resultado d10: ${resultadoD10}`;
-    resultadoD20Div.textContent = `Resultado d20: ${resultadoD20}`;
-    resultadoD100Div.textContent = `Resultado d100: ${resultadoD100}`;
+botaoD6.addEventListener('click', () => {
+    const resultado = Math.floor(Math.random() * 6) + 1;
+    resultadoD6Div.textContent = `Resultado d6: ${resultado}`;
 });
+
+botaoD10.addEventListener('click', () => {
+    const resultado = Math.floor(Math.random() * 10) + 1;
+    resultadoD10Div.textContent = `Resultado d10: ${resultado}`;
+});
+
+botaoD20.addEventListener('click', () => {
+    const resultado = Math.floor(Math.random() * 20) + 1;
+    resultadoD20Div.textContent = `Resultado d20: ${resultado}`;
+});
+
+botaoD100.addEventListener('click', () => {
+    const resultado = Math.floor(Math.random() * 100) + 1;
+    resultadoD100Div.textContent = `Resultado d100: ${resultado}`;
+});
+
 
     </script>
 </body>
